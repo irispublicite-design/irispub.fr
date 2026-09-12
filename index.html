@@ -14,7 +14,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-<link rel="preload" as="image" href="assets/background.webp" imagesrcset="assets/background.webp">
+<link rel="preload" as="image" href="assets/background.jpg">
 
 <link rel="stylesheet" href="style.css">
 </head>
@@ -22,18 +22,25 @@
 
 <div class="hero">
 
-  <picture class="hero-media" aria-hidden="true">
-    <source srcset="assets/background.webp" type="image/webp">
-    <img
-      src="assets/background.jpg"
-      alt=""
-      class="hero-media__img"
-      fetchpriority="high"
-      decoding="async">
-  </picture>
+  <div class="hero-media" aria-hidden="true">
+    <video
+      class="hero-media__video"
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="auto"
+      poster="assets/background.jpg">
+      <source src="assets/hero-video.mp4" type="video/mp4">
+      <source src="assets/hero-video.webm" type="video/webm">
+      <!-- Navigateur sans support vidéo : repli sur la photo -->
+      <img src="assets/background.jpg" alt="" class="hero-media__img">
+    </video>
+  </div>
 
   <div class="hero-overlay" aria-hidden="true"></div>
   <div class="hero-glow" aria-hidden="true"></div>
+  <div class="hero-shine" aria-hidden="true"></div>
 
   <header class="top-bar">
     <img src="assets/logo.svg" alt="Clichy Conduite — Auto-école" class="logo" width="180" height="121">
@@ -87,10 +94,9 @@
 
   <footer class="bottom-bar">
     <div class="contact-links">
-      <!-- TODO Ahmed : remplace le numéro WhatsApp (format international, sans espaces) ci-dessous -->
       <a
         class="contact-link contact-link--whatsapp"
-        href="https://wa.me/33600000000"
+        href="https://wa.me/33751383804"
         target="_blank"
         rel="noopener"
         aria-label="Contacter Clichy Conduite sur WhatsApp">

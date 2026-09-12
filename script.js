@@ -122,5 +122,15 @@
     if (yearEl) {
       yearEl.textContent = String(new Date().getFullYear());
     }
+
+    // Respecte "réduire les animations" : on garde la photo statique
+    // (poster) plutôt que de lancer la vidéo en boucle.
+    var prefersReducedMotion = window.matchMedia &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var heroVideo = document.querySelector(".hero-media__video");
+    if (prefersReducedMotion && heroVideo) {
+      heroVideo.pause();
+      heroVideo.removeAttribute("autoplay");
+    }
   });
 })();
